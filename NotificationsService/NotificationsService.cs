@@ -53,6 +53,7 @@ public class NotificationsService : BackgroundService
 
                 try
                 {
+                    // throw new ApplicationException("unable to process message");
                     await _mediator.Send(deserializedMessage, stoppingToken);
 
                     await _amazonSqs.DeleteMessageAsync(new DeleteMessageRequest
